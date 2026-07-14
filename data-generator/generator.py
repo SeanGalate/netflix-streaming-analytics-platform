@@ -4,6 +4,12 @@ import json
 from dataclasses import asdict
 from datetime import UTC, datetime
 
+from content import (
+	CONTENT_ID,
+	COUNTRY,
+	DEVICE,
+	EVENT_TYPE,
+)
 from schemas import StreamingEvent
 
 
@@ -13,11 +19,11 @@ def build_sample_streaming_event() -> StreamingEvent:
 	return StreamingEvent(
 		event_id="evt_20260713_0001",
 		user_id="user_1024",
-		content_id="show_stranger_things_s01e01",
-		event_type="playback_started",
+		content_id=CONTENT_ID,
+		event_type=EVENT_TYPE,
 		timestamp=datetime(2026, 7, 13, 20, 30, 0, tzinfo=UTC),
-		device="smart_tv",
-		country="US",
+		device=DEVICE,
+		country=COUNTRY,
 		session_id="sess_8f3c2a91",
 	)
 
