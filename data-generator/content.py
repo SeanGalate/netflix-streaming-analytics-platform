@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from itertools import chain
+
 # Canonical catalogs used by the data generator.
 # These pools are intentionally broad so the generator can produce a large
 # volume of varied records without repeating the same combinations too often.
@@ -600,16 +602,12 @@ CONTENT_CATALOG = {
 	),
 }
 
-CONTENT_CATEGORIES = tuple(CONTENT_CATALOG.keys())
-CONTENT_IDS = tuple(content_id for ids in CONTENT_CATALOG.values() for content_id in ids)
+# Flatten content catalog into reusable category and content ID collections.
 
-# Backward-compatible default content identifier for existing code paths.
-CONTENT_ID = CONTENT_IDS[0]
+CONTENT_CATEGORIES = tuple(CONTENT_CATALOG)
+CONTENT_IDS = tuple(chain.from_iterable(CONTENT_CATALOG.values()))
 
-# Reusable categorical values for streaming events.
-EVENT_TYPE = "playback_started"
-DEVICE = "smart_tv"
-COUNTRY = "US"
+# Canonical pools used by the generator when producing streaming events.
 
 EVENT_TYPES = (
 	"audio_track_changed", "bitrate_changed", "buffering_ended", "buffering_started",
@@ -663,10 +661,6 @@ __all__ = [
 	"CONTENT_CATALOG",
 	"CONTENT_CATEGORIES",
 	"CONTENT_IDS",
-	"CONTENT_ID",
-	"EVENT_TYPE",
-	"DEVICE",
-	"COUNTRY",
 	"EVENT_TYPES",
 	"DEVICES",
 	"COUNTRIES",
