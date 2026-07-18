@@ -68,7 +68,7 @@ This project is being developed incrementally and emphasizes production-ready en
 ### Phase 1 — Event Generator
 - Build a realistic Netflix streaming event generator
 - Simulate user activity (play, pause, stop, search, ratings, etc.)
-- Generate raw JSON streaming events
+- Generate raw Parquet streaming events
 
 ### Phase 2 — Bronze Layer
 - Ingest raw streaming events
