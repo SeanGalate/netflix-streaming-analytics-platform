@@ -1,0 +1,7 @@
+{
+  // Keep SPARK_HOME unset in workspace terminals so PySpark uses the
+  // version installed in the project venv instead of the global Spark 4.2.0 runtime.
+  "terminal.integrated.env.windows": {
+    "SPARK_HOME": null
+  }
+}
